@@ -2,6 +2,7 @@ import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Meaning from './Meaning';
+import Phonetic from './Phonetic';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -21,7 +22,20 @@ export default function Results(props) {
         return (
             <>
                 <Typography className={classes.h4} variant="h4">{props.results.word}</Typography>
-                <Typography variant="h6">{props.results.word}</Typography>
+                <Typography variant="h6">
+                    <Typography variant="h5">
+                        {props.results.phonetics.map((phonetic, index) => {
+                            return (
+                                <div key={index}>
+                                    <Phonetic phonetic={phonetic} />
+                                </div>
+                            )
+                        })}
+
+
+                    </Typography>
+
+                </Typography>
                 <Typography variant="body1">{props.results.meanings.map((meaning, index) => {
                     return (
                         <div key={index}>
@@ -30,7 +44,7 @@ export default function Results(props) {
                     )
                 })}
                 </Typography>
-                <Typography variant="h6">Synonyms</Typography>
+
             </>
         )
 

@@ -9,7 +9,7 @@ export default function Meaning(props) {
             {props.meaning.definitions.map((definition, index) => {
                 return (
                     <div key={index}>
-                        < Typography variant="body1" >
+                        <Typography variant="body1" >
                             {definition.definition}
                             <br />
                             <em>{definition.example}</em>
