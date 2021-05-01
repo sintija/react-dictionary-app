@@ -1,5 +1,6 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
+import Synonyms from './Synonyms';
 
 export default function Meaning(props) {
     return (
@@ -12,10 +13,10 @@ export default function Meaning(props) {
                             {definition.definition}
                             <br />
                             <em>{definition.example}</em>
+                            <Synonyms synonyms={definition.synonyms} />
                         </Typography>
                     </div>
                 )
-
             })}
         </div >
     )

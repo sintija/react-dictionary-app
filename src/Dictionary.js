@@ -10,15 +10,12 @@ import Results from './Results';
 const useStyles = makeStyles((theme) => ({
     form: {
         textAlign: 'center',
-        marginTop: '2rem'
+        marginTop: '2rem',
     },
-    formButton: {
-        width: '108px',
-        height: '55px',
-        marginLeft: '1rem',
-        border: 'solid 2px #1a1a1a',
-        borderRight: 'solid 4px #1a1a1a',
-        borderBottom: 'solid 4px #1a1a1a',
+    input: {
+        width: '20rem',
+        borderRight: 'solid 4px #0f0f12',
+        borderBottom: 'solid 4px #0f0f12',
         backgroundColor: '#ffffff',
         borderRadius: '8px',
         textTransform: 'none',
@@ -49,8 +46,8 @@ export default function Dictionary() {
             <Grid container className={classes.containe}>
                 <Grid item xs={12}>
                     <form className={classes.form} noValidate autoComplete="off" onSubmit={search}>
-                        <TextField id="outlined-basic" type="search" label="Type a word" variant="outlined" onChange={handleKeywordChange} />
-                        <Button className={classes.formButton} variant="contained">Search</Button>
+                        <TextField className={classes.input} id="outlined-basic" type="search" label="Type a word" variant="outlined" onChange={handleKeywordChange} />
+
                     </form>
                 </Grid>
                 <Grid item xs={12}>
