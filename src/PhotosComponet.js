@@ -10,7 +10,7 @@ export default function PhotosComponet(props) {
                 {props.photos.map((photo, index) => {
                     return (
                         <Card className="photoCard" key={index}>
-                            <a href={photo.src.original} target="_blank">
+                            <a href={photo.src.original} target="_blank" alt="image" rel="noreferrer">
                                 <img src={photo.src.small} />
                             </a>
                         </Card>
