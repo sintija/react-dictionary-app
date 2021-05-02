@@ -23,11 +23,12 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function Dictionary() {
+export default function Dictionary(props) {
     const classes = useStyles();
-    let [keyword, setKeyword] = useState("");
+    let [keyword, setKeyword] = useState(props.defaultKeyword);
     let [results, setResults] = useState(null);
-    let [photos, setPhotos] = useState(null)
+    let [photos, setPhotos] = useState(null);
+    let [loaded, setLoaded] = useState(false);
 
     function handleKeywordChange(event) {
         setKeyword(event.target.value);
@@ -43,8 +44,8 @@ export default function Dictionary() {
         console.log(response.data.photos);
     }
 
-    function search(event) {
-        event.preventDefault();
+
+    function search() {
         let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en_US/${keyword}`;
         axios.get(apiUrl).then(handleDictionaryResponse);
         let pexelsApiKey = '563492ad6f91700001000001009cc8b42d664a05a45d98b373fa50ac';
@@ -52,21 +53,44 @@ export default function Dictionary() {
         let pexelsApiUrl = `https://api.pexels.com/v1/search?query=${keyword}&per_page=3`
         axios.get(pexelsApiUrl,
             { headers: headers }).then(handlePexelsResponse);
-    }
-    return (
-        <div>
-            <Grid container className={classes.containe}>
-                <Grid item xs={12}>
-                    <form className={classes.form} noValidate autoComplete="off" onSubmit={search}>
-                        <TextField className={classes.input} id="outlined-basic" type="search" label="Type a word" variant="outlined" onChange={handleKeywordChange} />
 
-                    </form>
+    }
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        search();
+    }
+
+    function load() {
+        setLoaded(true);
+        search();
+    }
+
+
+
+    if (loaded) {
+        return (
+            <div>
+                <Grid container className={classes.container}>
+                    <Grid item xs={12}>
+                        <form className={classes.form} noValidate autoComplete="off" onSubmit={handleSubmit}>
+                            <TextField className={classes.input} id="outlined-basic" type="search" label="Search for word (try:sunset, moon, frog)" variant="outlined" onChange={handleKeywordChange} />
+                        </form>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Results results={results} />
+                        <PhotosComponent photos={photos} />
+                    </Grid>
                 </Grid>
-                <Grid item xs={12}>
-                    <Results results={results} />
-                    <PhotosComponent photos={photos} />
-                </Grid>
-            </Grid>
-        </div>
-    )
+            </div>
+        )
+
+    } else {
+        load();
+        return "Loading";
+    }
+
+
+
+
 }

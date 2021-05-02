@@ -1,14 +1,14 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
 import AudioComponent from './AudioComponent';
+import Typography from '@material-ui/core/Typography';
 
 
 export default function Phonetic(props) {
 
     return (
-        <div>
-            <Typography variant="h6">{props.phonetic.text}</Typography>
+        <>
             <AudioComponent audio={props.phonetic.audio} />
-        </div>
+            <Typography variant="h6">{props.phonetic.text}</Typography>
+        </>
     )
 }

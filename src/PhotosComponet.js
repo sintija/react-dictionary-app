@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import Card from '@material-ui/core/Card';
 
 export default function PhotosComponet(props) {
 
@@ -8,11 +9,11 @@ export default function PhotosComponet(props) {
                 {/* <img src={props.photos[0].src.small} alt="" /> */}
                 {props.photos.map((photo, index) => {
                     return (
-                        <div key={index}>
+                        <Card className="photoCard" key={index}>
                             <a href={photo.src.original} target="_blank">
                                 <img src={photo.src.small} />
                             </a>
-                        </div>
+                        </Card>
 
                     )
 

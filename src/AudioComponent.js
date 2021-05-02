@@ -4,6 +4,10 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => {
     return {
+        root: {
+            display: 'block',
+            margin: '0 auto'
+        },
         playIcon: {
             color: '#f50057',
             '&:hover': {
@@ -30,7 +34,7 @@ export default function AudioComponent(props) {
 
 
     return (
-        <div>
+        <>
 
             <AudioPlayer
                 src={props.audio}
@@ -39,11 +43,8 @@ export default function AudioComponent(props) {
                 width={50}
                 useStyles={useStyles}
                 elevation={0}
-
             />
-
-
-        </div>
+        </>
     )
 }
 

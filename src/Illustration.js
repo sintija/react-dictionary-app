@@ -9,9 +9,9 @@ const useStyles = makeStyles((theme) => ({
     },
     illustration: {
         width: '50vh',
-        display: 'block',
+        display: 'flex',
         margin: '0 auto',
-        paddingTop: '3rem'
+        paddingTop: '3rem',
     }
 
 }));

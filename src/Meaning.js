@@ -12,7 +12,7 @@ export default function Meaning(props) {
                         <Typography variant="body1" >
                             {definition.definition}
                             <br />
-                            <em>{definition.example}</em>
+                            <em className="definition">{definition.example}</em>
                             <Synonyms synonyms={definition.synonyms} />
                         </Typography>
                     </div>
