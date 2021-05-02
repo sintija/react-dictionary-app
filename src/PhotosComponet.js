@@ -11,7 +11,7 @@ export default function PhotosComponet(props) {
                     return (
                         <Card className="photoCard" key={index}>
                             <a href={photo.src.original} target="_blank" rel="noreferrer">
-                                <img src={photo.src.small} alt="image" />
+                                <img src={photo.src.small} alt="sunsetIllustration" />
                             </a>
                         </Card>
 
