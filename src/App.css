@@ -8,10 +8,7 @@
 }
 
 .gallery-img {
-    border-bottom: solid 3px #0d0d0f;
-    border-left: solid 2px #0f0f12;
-    border-right: solid 3px #0f0f12;
-    border-top: solid 2px #0f0f12;
+    border-radius: 7px
 }
 
 .gallery-container {
