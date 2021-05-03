@@ -8,15 +8,13 @@ export default function PhotosComponet(props) {
         {props.photos.map((photo, index) => {
           return (
             <ImageListItem key={index}>
-              <a href={photo.src.original} target="_blank" rel="noreferrer">
-                <img
-                  srcSet={`${photo.src.landscape}?w=161&fit=crop&auto=format 1x,
+              <img
+                srcSet={`${photo.src.landscape}?w=161&fit=crop&auto=format 1x,
                 ${photo.src.landscape}?w=161&fit=crop&auto=format&dpr=2 2x`}
-                  alt="thisissunset"
-                  loading="lazy"
-                  className="gallery-img"
-                />
-              </a>
+                alt="thisissunset"
+                loading="lazy"
+                className="gallery-img"
+              />
             </ImageListItem>
           );
         })}
